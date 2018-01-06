@@ -24,14 +24,18 @@ In your existing Homebridge configration, add an accessory with the following st
 ```json
 "accessories": [
     {
-        "platform": "Optoma",
-        "host": "http://optoma-projector.local"
+        "accessory": "Optoma",
+        "host": "http://optoma-projector.local",
+        "name": "Projector",
+        "model": "HD66"
     }
 ]
 ```
 
 Make sure that the `host` field includes the `http` protocol.
 Depending on your network setup, you may need to use a different host name, or the IP address directly.
+
+The `model` field is optional, and is for display purposes only.
 
 ## Contributing
 

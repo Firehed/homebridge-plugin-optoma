@@ -27,7 +27,7 @@ class Projector {
   constructor(log, config) {
     this.createServices = () => {
       const infoService = new Service.AccessoryInformation();
-      infoService.setCharacteristic(Characteristic.Manufacturer, 'Yamaha').setCharacteristic(Characteristic.Model, 'TODO Model').setCharacteristic(Characteristic.SerialNumber, 'TODO SN');
+      infoService.setCharacteristic(Characteristic.Manufacturer, 'Optoma').setCharacteristic(Characteristic.Model, this.model).setCharacteristic(Characteristic.SerialNumber, 'XXXXXX');
 
       const switchService = new Service.Switch(this.name);
       switchService.getCharacteristic(Characteristic.On).on('get', this.getPower).on('set', this.setPower);
@@ -79,8 +79,9 @@ class Projector {
     log('Optoma plugin loaded');
     this.log = log;
 
-    const { host } = config;
+    const { host, model } = config;
     this.host = host;
+    this.model = model || "Unknown";
 
     // State caching variables: when the projector is changing state, it
     // reports the _current_ rather than the _target_ state. This will cache
