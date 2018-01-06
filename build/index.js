@@ -36,7 +36,7 @@ class Projector {
     };
 
     this.getServices = () => {
-      return [this.infoService, this.switchServuce];
+      return [this.infoService, this.switchService];
     };
 
     this.getPower = cb => {
