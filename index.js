@@ -24,14 +24,13 @@ module.exports = (homebridge) => {
 class Projector {
 
   // These values are provided via Homebridge
-  constructor(log, config, api) {
+  constructor(log, config) {
     if (!config) {
       log('Ignoring projector - no config');
       return;
     }
     log('Optoma plugin loaded');
     this.log = log;
-    this.api = api;
 
     const { host } = config;
     this.host = host;
@@ -42,13 +41,6 @@ class Projector {
     this.lastState = null
     this.lastChecked = null
     this.checkInterval = 15000; // milliseconds
-
-    this.api.on('error', (e) => {
-      this.log.error(e);
-    });
-    this.api.on('warning', (w) => {
-      this.log.warn(w);
-    });
 
     [this.infoService, this.switchService] = this.createServices();
   }
