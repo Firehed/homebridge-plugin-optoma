@@ -64,7 +64,7 @@ class Projector {
       // won't parse the POST body unless the Content-Length header is formatted
       // exactly as such. Fortunately, throwing the value in the query string
       // allows it to go through just fine.
-      state = on ? "on" : "off";
+      const state = on ? "on" : "off";
       fetch(this.host + '/power?state=' + state, { method: "POST" }).then(_ => {
         this.lastState = on;
         this.lastChecked = Date.now();
