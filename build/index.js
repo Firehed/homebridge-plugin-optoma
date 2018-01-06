@@ -18,7 +18,7 @@ module.exports = homebridge => {
   Service = homebridge.hap.Service;
   UUIDGen = homebridge.hap.uuid;
 
-  homebridge.registerPlatform(platformName, platformPrettyName, Projector, true);
+  homebridge.registerAccessory(platformName, platformPrettyName, Projector, true);
 };
 
 class Projector {

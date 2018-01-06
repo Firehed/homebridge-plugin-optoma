@@ -22,7 +22,7 @@ While this plugin should work with very little work or configuration, the hardwa
 In your existing Homebridge configration, add an accessory with the following structure:
 
 ```json
-"platforms": [
+"accessories": [
     {
         "platform": "Optoma",
         "host": "http://optoma-projector.local"
